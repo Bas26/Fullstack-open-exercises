@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
 participant browser
 participant server
@@ -7,3 +8,4 @@ server->>browser: Returns HTTP 302 status code which redirects the browser to an
 
 browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/notes
 server->>browser: returns document or HTML file
+```
