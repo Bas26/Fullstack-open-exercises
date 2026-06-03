@@ -8,22 +8,29 @@ const Button = (props) => {
   );
 };
 
-const Statistics = (props) => {
-  const average =
-    (props.good - props.bad) / (props.bad + props.good + props.neutral);
-  const posPercentage =
-    (props.good / (props.bad + props.good + props.neutral)) * 100;
-  return (
-    <>
-      <h1>Statistics</h1>
-      <p>good {props.good}</p>
-      <p>neutral {props.neutral}</p>
-      <p>bad {props.bad}</p>
-      <p>total {props.bad + props.good + props.neutral}</p>
-      <p>average {average} </p>
-      <p>percentage {posPercentage} %</p>
-    </>
-  );
+const Statistics = ({ good, bad, neutral }) => {
+  const average = (good - bad) / (bad + good + neutral);
+  const posPercentage = (good / (bad + good + neutral)) * 100;
+  if (good || bad || neutral) {
+    return (
+      <>
+        <h1>Statistics</h1>
+        <p>good {good}</p>
+        <p>neutral {neutral}</p>
+        <p>bad {bad}</p>
+        <p>total {bad + good + neutral}</p>
+        <p>average {average} </p>
+        <p>percentage {posPercentage} %</p>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <h1>Feedback</h1>
+        <p>no feedback given</p>
+      </>
+    );
+  }
 };
 
 const App = () => {
