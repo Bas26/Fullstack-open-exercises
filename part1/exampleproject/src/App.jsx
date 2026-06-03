@@ -25,7 +25,8 @@ const App = () => {
       <button onClick={handleLeftClick}>left</button>
       <button onClick={handleRightClick}>right</button>
       {click.right}
-      {allClicks.join(" ")}
+      <p>{allClicks.join(" ")}</p>
+      <p></p>
     </div>
   );
 };
