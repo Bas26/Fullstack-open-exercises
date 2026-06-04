@@ -15,12 +15,12 @@ const Statistics = ({ good, bad, neutral }) => {
     return (
       <>
         <h1>Statistics</h1>
-        <p>good {good}</p>
-        <p>neutral {neutral}</p>
-        <p>bad {bad}</p>
-        <p>total {bad + good + neutral}</p>
-        <p>average {average} </p>
-        <p>percentage {posPercentage} %</p>
+        <StatisticLines value={good} text="good" />
+        <StatisticLines value={neutral} text="neutral" />
+        <StatisticLines value={bad} text="bad" />
+        <StatisticLines value={good + bad + neutral} text="total" />
+        <StatisticLines value={average} text="average" />
+        <StatisticLines value={posPercentage} text="percentage" />
       </>
     );
   } else {
@@ -31,6 +31,14 @@ const Statistics = ({ good, bad, neutral }) => {
       </>
     );
   }
+};
+
+const StatisticLines = ({ value, text }) => {
+  return (
+    <p>
+      {text} {value}
+    </p>
+  );
 };
 
 const App = () => {
