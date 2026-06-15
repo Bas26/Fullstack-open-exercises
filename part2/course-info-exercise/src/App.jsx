@@ -12,21 +12,25 @@ const Content = ({ parts }) => {
   );
 };
 
-// const Total = (props) => {
-//   return (
-//     <p>
-//       Number of exercises{" "}
-//       {props.parts[0].exercises +
-//         props.parts[1].exercises +
-//         props.parts[2].exercises}
-//     </p>
-//   );
-// };
-
 const Part = (props) => {
   return (
     <p>
       {props.part} {props.exercise}
+    </p>
+  );
+};
+
+const Total = ({ parts }) => {
+  console.log(parts);
+  return (
+    <p>
+      <b>
+        total of{" "}
+        {parts.reduce((accumulator, part) => {
+          return accumulator + part.exercises;
+        }, 0)}{" "}
+        exercises
+      </b>
     </p>
   );
 };
@@ -36,6 +40,7 @@ const Course = ({ course }) => {
     <div>
       <Header course={course.name} />
       <Content parts={course.parts} />
+      <Total parts={course.parts} />
     </div>
   );
 };
@@ -59,6 +64,11 @@ const App = () => {
         name: "State of a component",
         exercises: 14,
         id: 3,
+      },
+      {
+        name: "Redux",
+        exercises: 11,
+        id: 4,
       },
     ],
   };
