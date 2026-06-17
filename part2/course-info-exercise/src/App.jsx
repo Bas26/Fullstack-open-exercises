@@ -21,7 +21,6 @@ const Part = (props) => {
 };
 
 const Total = ({ parts }) => {
-  console.log(parts);
   return (
     <p>
       <b>
